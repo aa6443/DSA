@@ -29,10 +29,23 @@ Node* convertArray2LL(vector<int> &arr){
         mover = temp;
     }
     return head;
-}
+};
+
+//printing the linked list 
+Node* printing(Node* head){
+    Node* temp = head;
+    while(temp){
+
+    cout<<temp->data<<" ";
+    temp= temp->next;
+    }
+    return ;
+};
+
 int main(){
     vector<int> arr = {12, 20, 1, 5};
     Node* head = convertArray2LL(arr);
-    cout<<head->data;
+    // cout<<head->data;
+    printing(head);
     return 0;
 }
