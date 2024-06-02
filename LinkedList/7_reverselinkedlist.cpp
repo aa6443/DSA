@@ -81,16 +81,47 @@ Node* deletefromEnd(Node* head){
     temp->next = nullptr;
     return head;
 }
+
+Node* deleteFromMiddle(Node* head,int k){
+    Node* temp = head;
+    int i=2;
+    while(i <k){
+        temp = temp->next;
+    }
+    temp ->next = temp->next->next;
+    return head;
+}
+
+void searchElementOnLL(Node* head, int val) {
+    int flag = 0;
+    Node* temp = head;
+    while(temp) {
+        if(temp->data == val) {
+            flag = 1;
+            break;
+        }
+        temp = temp->next;
+    }
+    if(flag == 0) {
+        cout << "element not found" << endl;
+    } else {
+        cout << "element found" << endl;
+    }
+}
+
+
+
 int main(){
     vector<int> v  = {1,2,3,4,5};
     Node* head = LinkedListCreation(v);
     // Node* newHead = InsertElementAtEnd(head,2);
     // Node* newHead = InsertAtK(head,69,2);
     // Node* newHead =deleteFromBegininng(head);
-    Node* newHead =deletefromEnd(head);
+    // Node* newHead =deletefromEnd(head);
+    // Node* newHead =deleteFromMiddle(head,2);
+    searchElementOnLL(head,3);
     
+    // printingelements(newHead);
     
-    printingelements(newHead);
-
     return 0;
 }
