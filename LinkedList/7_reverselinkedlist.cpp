@@ -109,19 +109,42 @@ void searchElementOnLL(Node* head, int val) {
     }
 }
 
+Node* sortLL(Node* head){
+    Node* current = head;
+    Node* nxt = NULL;
+    int temp;
 
+    if(head == NULL ) return head;
+    else{
+        while (current != nullptr)
+        {
+            nxt = current->next;
+            while(nxt != nullptr){
+                if(current->data > nxt->data ){
+                    temp = current->data;
+                    current->data = nxt->data;
+                    nxt->data = temp;
+                }
+                nxt = nxt->next;
+            }
+            current = current->next;
+        } 
+    }
+    return head;
+}
 
 int main(){
-    vector<int> v  = {1,2,3,4,5};
+    vector<int> v  = {2,1,7,9,3};
     Node* head = LinkedListCreation(v);
     // Node* newHead = InsertElementAtEnd(head,2);
     // Node* newHead = InsertAtK(head,69,2);
     // Node* newHead =deleteFromBegininng(head);
     // Node* newHead =deletefromEnd(head);
+    // searchElementOnLL(head,3);
     // Node* newHead =deleteFromMiddle(head,2);
-    searchElementOnLL(head,3);
+    Node* newHead = sortLL(head);
     
-    // printingelements(newHead);
+    printingelements(newHead);
     
     return 0;
 }
