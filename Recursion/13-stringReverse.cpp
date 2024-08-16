@@ -2,6 +2,7 @@
 using namespace std;
 
 void revStr(string &s,int low,int high){
+    cout<<"call received for "<< s<<endl;
     //base case 
     if(low>=high){
         return ;

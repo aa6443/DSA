@@ -1,5 +1,8 @@
+/*
+---------------------------------------------------------
 This is recursion Notes
-
+---------------------------------------------------------
+*/
 /*   Tail Recursion   */
 //base case
 //processing 
@@ -10,3 +13,10 @@ This is recursion Notes
 //recurrence relation
 //processing
 
+/*
+Power calculation Trick (Optimised Way)
+a^b ----->b is even ||   a^(b/2) * a^(b/2)
+    ----->b is odd  ||  a * a^(b/2)*a^(b/2)
+
+
+*/
