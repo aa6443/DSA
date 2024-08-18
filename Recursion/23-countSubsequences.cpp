@@ -2,30 +2,27 @@
 #include <vector>
 using namespace std;
 
-bool printS(int ind,vector<int> &ds,int s,int sum,vector<int> arr,int n){
+int printS(int ind,int s,int sum,vector<int> arr,int n){
+    if(s>sum) return 0;
     if(ind == n){
         //condition satisfied
         if(s == sum){
-            for(auto it:ds) cout<<it<<" ";
-            cout<<endl;
-            return true;
+            return 1;
         }
         //condition not satisfied 
-        else return false;
+        else return 0;
     }
-    ds.push_back(arr[ind]);
+    
     s += arr[ind];
-    if(printS(ind+1,ds,s,sum,arr,n) == true){
-        return true;
-    }
+    int l = printS(ind+1,s,sum,arr,n) == true;
     s -= arr[ind];
-    ds.pop_back();
+   
 
     //not pick 
-    if(printS(ind+1,ds,s,sum,arr,n) == true){
-        return true;
-    }
-    return false;
+    int r = printS(ind+1,s,sum,arr,n);
+ 
+    
+    return l+r;
 }
 
 
@@ -33,8 +30,9 @@ int main() {
     vector<int> arr = {1,2,1};
     int n = 3;
     int sum =  2;
-    vector<int> ds;
-    printS(0,ds,0,sum,arr,n);
+    cout<<printS(0,0,sum,arr,n);
     
     return 0;
 }
+
+//TC - O(2^N)
