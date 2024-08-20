@@ -65,7 +65,7 @@ int main(){
     vector<int> dp(n+1,-1);
     cout<<"The memoised ans is "<<memoised(n-1,height,dp)<<endl;
     cout<<"The tabulation ans is "<<tabulation(n,height)<<endl;
-    cout<<"The tabulation ans is "<<optimised(n,height)<<endl;
+    cout<<"The optimied ans is "<<optimised(n,height)<<endl;
 
     return 0;
 }
